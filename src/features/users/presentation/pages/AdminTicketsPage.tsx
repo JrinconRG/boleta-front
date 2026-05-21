@@ -4,23 +4,9 @@ import React, { useEffect, useState } from 'react';
 import { useAuthStore } from '../../../auth/infrastructure/store/useAuthStore';
 import { httpClient } from '../../../../shared/infrastructure/api/httpClient';
 import { Pagination } from '../../../../shared/presentation/components/Pagination';
-import { TicketType, TicketStatus } from '../../../tickets/domain/Ticket';
+import { AdminTicket } from '../../../tickets/domain/Ticket';
 import './AdminTicketsPage.css';
 
-interface AdminTicket {
-  id: string;
-  title: string;
-  gameType: TicketType;
-  status: TicketStatus;
-  gameDate: string;
-  gameNumber?: string;
-  amount?: number;
-  owner: {
-    id: string;
-    name: string;
-    email: string;
-  };
-}
 
 export const AdminTicketsPage = () => {
   const { user, logout } = useAuthStore();

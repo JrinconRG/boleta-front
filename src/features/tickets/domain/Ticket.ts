@@ -28,3 +28,19 @@ export interface PaginatedTickets {
   page: number;
   totalPages: number;
 }
+
+
+export interface AdminTicket {
+  id: string;
+  title: string;
+  gameType: TicketType;
+  status: TicketStatus;
+  gameDate: string;
+  gameNumber?: string;
+  amount?: number;
+  owner: {
+    id: string;
+    name: string;
+    email: string;
+  };
+}
