@@ -1,0 +1,429 @@
+/* =========================================================
+   AdminTicketsPage.css  —  Mismos tokens que el resto
+   ========================================================= */
+
+.admin-layout {
+  min-height: 100dvh;
+  background-color: #f5f4f0;
+  background-image:
+    radial-gradient(ellipse 60% 40% at 0% 0%, #e8e4fc 0%, transparent 50%),
+    radial-gradient(ellipse 50% 35% at 100% 100%, #faeeda 0%, transparent 50%);
+  padding: 0 0 3rem;
+  font-family: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ── Header ───────────────────────────────────────────────── */
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.25rem 2rem;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.admin-header-title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.admin-page-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #111111;
+  margin: 0;
+}
+
+.admin-page-subtitle {
+  font-size: 0.8125rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.admin-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Badge "Admin: nombre" */
+.badge-admin {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #3c3489;
+  background: #eeecfb;
+  border: 1px solid #c4bfea;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.badge-admin-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #3c3489;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.btn-admin-logout {
+  height: 34px;
+  padding: 0 14px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #6b7280;
+  background: transparent;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  font-family: inherit;
+}
+
+.btn-admin-logout:hover {
+  border-color: #f87171;
+  color: #dc2626;
+  background: #fff5f5;
+}
+
+/* ── Alerta error ─────────────────────────────────────────── */
+.admin-alert-error {
+  margin: 1.25rem 2rem 0;
+  background: #fff5f5;
+  border: 1px solid #fca5a5;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: #991b1b;
+}
+
+/* ── 403 Forbidden ────────────────────────────────────────── */
+.admin-forbidden {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60dvh;
+  gap: 12px;
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+.forbidden-code {
+  font-size: 5rem;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  color: #e5e7eb;
+  line-height: 1;
+}
+
+.admin-forbidden p {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  margin: 0;
+}
+
+/* ── Filtros ──────────────────────────────────────────────── */
+.admin-filters-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 1.5rem 2rem 0;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.admin-search-box {
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.admin-filter-dropdown {
+  flex: 0 1 190px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.admin-filters-card label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #6b7280;
+  letter-spacing: 0.01em;
+}
+
+.admin-search-wrapper {
+  position: relative;
+}
+
+.admin-search-wrapper::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239ca3af' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.admin-filters-card input[type="text"],
+.admin-filters-card select {
+  width: 100%;
+  height: 38px;
+  font-size: 0.875rem;
+  color: #111827;
+  background: #fafafa;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 9px;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  font-family: inherit;
+  box-sizing: border-box;
+  appearance: none;
+}
+
+.admin-filters-card input[type="text"] {
+  padding: 0 12px 0 32px;
+}
+
+.admin-filters-card select {
+  padding: 0 32px 0 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 15px;
+  background-color: #fafafa;
+  cursor: pointer;
+}
+
+.admin-filters-card input:focus,
+.admin-filters-card select:focus {
+  border-color: #7f77dd;
+  box-shadow: 0 0 0 3px rgba(127, 119, 221, 0.15);
+  background: #ffffff;
+}
+
+.admin-filters-card input::placeholder {
+  color: #b0b7c3;
+}
+
+/* ── Resumen ──────────────────────────────────────────────── */
+.admin-stats-summary {
+  margin: 1rem 2rem 0;
+  font-size: 0.8125rem;
+  color: #9ca3af;
+}
+
+.admin-stats-summary strong {
+  color: #3c3489;
+  font-weight: 700;
+}
+
+/* ── Panel principal ──────────────────────────────────────── */
+.admin-main-card {
+  margin: 0.75rem 2rem 0;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+/* ── Loading ──────────────────────────────────────────────── */
+.admin-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 3rem 1.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.admin-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #e5e7eb;
+  border-top-color: #7f77dd;
+  border-radius: 50%;
+  animation: spin 0.65s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Tabla ────────────────────────────────────────────────── */
+.admin-table-wrapper {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.admin-table thead tr {
+  background: #fafafa;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.admin-table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.admin-table-row {
+  border-bottom: 1px solid #f9fafb;
+  transition: background 0.12s;
+}
+
+.admin-table-row:last-child {
+  border-bottom: none;
+}
+
+.admin-table-row:hover {
+  background: #fafaff;
+}
+
+.admin-table td {
+  padding: 0.85rem 1rem;
+  vertical-align: middle;
+}
+
+.admin-empty-row {
+  text-align: center;
+  padding: 3rem 1rem !important;
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+/* ── Celdas ───────────────────────────────────────────────── */
+.owner-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.owner-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.owner-email {
+  font-size: 0.775rem;
+  color: #9ca3af;
+}
+
+.ticket-title {
+  font-weight: 500;
+  color: #374151;
+}
+
+.admin-number-cell {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-weight: 600;
+  color: #3c3489;
+  letter-spacing: 0.05em;
+}
+
+.admin-date-cell {
+  white-space: nowrap;
+  color: #6b7280;
+  font-size: 0.84rem;
+}
+
+.admin-amount-cell {
+  font-weight: 600;
+  color: #111827;
+}
+
+/* ── Badge tipo ───────────────────────────────────────────── */
+.admin-badge-type {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #eeecfb;
+  color: #3c3489;
+  white-space: nowrap;
+}
+
+.admin-badge-type.lotería      { background: #e8e4fc; color: #3c3489; }
+.admin-badge-type.rifa         { background: #d6f0e8; color: #0f6e56; }
+.admin-badge-type.sorteo       { background: #faeeda; color: #854f0b; }
+.admin-badge-type.boleta       { background: #fbeaf0; color: #993556; }
+.admin-badge-type.juego_ocasional { background: #f3f4f6; color: #6b7280; }
+
+/* ── Status pill ──────────────────────────────────────────── */
+.admin-status-pill {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.admin-status-pill.pendiente { background: #fef3c7; color: #92400e; }
+.admin-status-pill.ganado    { background: #d6f0e8; color: #0f6e56; }
+.admin-status-pill.perdido   { background: #fee2e2; color: #991b1b; }
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .admin-header,
+  .admin-filters-card,
+  .admin-alert-error,
+  .admin-stats-summary,
+  .admin-main-card {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .admin-header {
+    padding: 1rem;
+  }
+
+  .admin-search-box,
+  .admin-filter-dropdown {
+    flex: 1 1 100%;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding: 0.65rem 0.75rem;
+  }
+}
